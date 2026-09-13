@@ -12,12 +12,11 @@ Image processing script that segments and saturates rock paintings
 8. Small components are removed.
 
 ### Mask cleaning
-1. Extract A and B channels, and calculate average channel values in mask.
-2. Remove pixels that differ too much from the average.
-3. Perform density check and remove pixels that are too isolated.
-4. Identify and keep 5 largest connected components.
-5. Threshold keeps larger components and nearby smaller components.
-6. Median filter smooths pixelated edges.
+1. Find all 8-connected components and identifies the largest one.
+2. Identifies anchor objects that are 12% the size of the largest and not on the edge.
+3. Keeps components that are large enough and close enough to anchor objects.
+4. Objects on margins that don't extend to the center are removed.
+5. Small isolated objects are removed.
 
 ### Smoothing
 1. Closing
